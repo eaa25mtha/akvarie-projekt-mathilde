@@ -1,0 +1,202 @@
+
+
+/*-------------------
+ROOT VARIABLER
+---------------------*/
+:root {  
+/*farver*/
+--color-bg-top: #9adfe9;
+--color-bg-mid: #71b5de;
+--color-bg-bot: #4a83be;
+}
+
+
+/*--------------------
+AKVARIE INDHOLD
+----------------------*/
+.baggrund {
+    background: linear-gradient(var(--color-bg-top), var(--color-bg-mid), var(--color-bg-bot));
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: 50px;
+    z-index: 0;
+}
+
+.baggrund .akvarie{
+    width: 1200px;
+    max-width: 100%;
+    height: 900px;
+    position: relative; /* klassen akvarie bliver reference for klassen fisk*/
+}
+
+.akvarie-indhold {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+}
+
+.musling {
+    position: absolute;
+    bottom: 5px;
+    z-index: 2;
+    left: 600px;
+}
+
+
+/*---------------------------
+ANIMATION AF FISK
+-----------------------------*/
+/* klovnfisken */
+.klovnfisk {
+    position: absolute;
+    bottom: 30vh;
+    right: 320px;
+    animation: klovnfisk 18s linear infinite;
+    cursor: pointer;
+}
+
+@keyframes klovnfisk {
+    0% {transform: translateX(0);}                          /* fiskens startpunkt*/
+    48% {transform: translateX(-600px) rotateY(0);}         /* fisken svømmer til venstre*/
+    50% {transform: translateX(-550px) rotateY(180deg);}    /* fisken laver en hurtig vendning*/
+    98% {transform: translateX(0) rotateY(180deg);}         /* fisken svømmer mod højre*/
+    100% {transform: translateX(0) translateY(0);}          /* den laver en hurtig vending og starter loopen forfra*/
+}
+
+
+/* laks */
+.laks {
+    position: absolute;
+    bottom: 50vh;
+    left: 320px;
+    animation: laks 15s linear infinite;
+    cursor: pointer;
+}
+
+@keyframes laks {
+    0% {transform: translateX(0);}
+    48% {transform: translateX(600px) rotateY(0);}
+    50% {transform: translateX(555px) rotateY(180deg);}
+    98% {transform: translateX(0) rotateY(180deg);}
+    100% {transform: translateX(0) translateY(0);}
+}
+
+
+/* den blå fisk */
+.blue-fisk {
+    position: absolute;
+    bottom: 20vh;
+    left: 320px;
+    animation: blue-fisk 12s linear infinite;
+    cursor: pointer;
+}
+
+@keyframes blue-fisk {
+    0% {transform: translateX(0);}
+    48% {transform: translateX(650px) rotateY(0);}
+    50% {transform: translateX(620px) rotateY(180deg);}
+    98% {transform: translateX(0) rotateY(180deg);}
+    100% {transform: translateX(0) rotateY(0);}
+}
+
+
+/* den lilla fisk */
+.lilla-fisk {
+    position: absolute;
+    bottom: 18vh;
+    right: 320px;
+    animation: lilla-fisk 8s linear infinite;
+    cursor: pointer;
+}
+
+@keyframes lilla-fisk {
+    0% {transform: translateX(0) rotateY(180deg);}                         
+    49% {transform: translateX(-750px) rotateY(180deg);}         
+    50% {transform: translateX(-650px) rotateY(0);}    
+    98% {transform: translateX(0) rotateY(0);}         
+    100% {transform: translateX(0) translateY(0);}
+}
+
+
+/* den stribede fisk */
+.stribet-fisk {
+    position: absolute;
+    bottom: 45vh;
+    left: 320px;
+    animation: stribet-fisk 10s linear infinite;
+    cursor: pointer;
+}
+
+@keyframes stribet-fisk {
+    0% {transform: translateX(0);}
+    48% {transform: translateX(650px) rotateY(0);}
+    50% {transform: translateX(620px) rotateY(180deg);}
+    98% {transform: translateX(0) rotateY(180deg);}
+    100% {transform: translateX(0) rotateY(0);}
+}
+
+
+/*----------------------
+ANIMATION AF CYKLEN
+------------------------*/
+
+.cykel {
+    position: absolute;
+    top: -200px; /* cyklen starter udenfor viewporten*/
+    z-index: 10;
+    left: 500px;
+    cursor: pointer;
+    animation: cykel 5s linear 1 forwards; /* kører kun animationen en gang og beholder sluttilstand*/ 
+    animation-delay: 5s;  
+}
+
+@keyframes cykel {
+    0% {transform: translateY(0);}
+    50% {transform: translateY(800px);}
+    100% {transform: translateY(800px);}
+}
+
+
+/*----------------------------
+VIDENSBOKS TIL DATAOBJEKTERNE
+-----------------------------*/
+.vidensboks {
+    position: absolute;
+    right: 60vh;
+    bottom: 50vh;
+    background-color: rgb(211, 241, 253);
+    color: darkblue;
+    padding: 10px;
+    border-radius: 8px;
+    font-size: 14px;
+    line-height: 1.5;
+    max-width: min(320px, 90vw);
+    box-shadow: 0 8px 22px rgba(0, 0, 0, 0.25);
+    opacity: 0;  
+    transform: translateY(8px);
+    transition: opacity 0.25s ease, transform 0.2s ease;
+    pointer-events: none;
+    z-index: 20;
+}
+
+
+.vidensboks.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/*------------------
+AKVARIE OVERSKRIFT
+--------------------*/
+.akvarie-titel {
+    position: absolute;
+    right: 62vh;
+    top: 15vh;
+    z-index: 30;
+    color: var(--color-bg-bot);
+
+
+}
