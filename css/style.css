@@ -1,4 +1,10 @@
 
+/*-------------
+FONT IMPORT
+---------------*/
+/* poppins og luckiest guy*/
+@import url("https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
 
 /*-------------------
 ROOT VARIABLER
@@ -24,10 +30,11 @@ AKVARIE INDHOLD
 }
 
 .baggrund .akvarie{
-    width: 1200px;
+    width: 1100px;
     max-width: 100%;
-    height: 900px;
-    position: relative; /* klassen akvarie bliver reference for klassen fisk*/
+    left: 8vh;
+    height: 800px;
+    position: relative; 
 }
 
 .akvarie-indhold {
@@ -39,10 +46,35 @@ AKVARIE INDHOLD
 
 .musling {
     position: absolute;
-    bottom: 5px;
+    bottom: 9vh;
     z-index: 2;
-    left: 600px;
+    left: 68vh;
 }
+
+.cykel {
+    position: absolute;
+    bottom: 4vh;
+    left: 74vh;
+    transform: skew(2deg);
+    transform: scaleX(-1); /* spejlvender cyklen */
+}
+
+.krabbe {
+    position: absolute;
+    bottom: 1vh;
+    left: 2vh;
+    width: 250px;
+}
+
+.talebobel {
+    position: absolute;
+    bottom: 32vh;
+    width: 300px;
+    left: 25vh;
+    z-index: 50;
+}
+
+
 
 
 /*---------------------------
@@ -51,26 +83,44 @@ ANIMATION AF FISK
 /* klovnfisken */
 .klovnfisk {
     position: absolute;
-    bottom: 30vh;
-    right: 320px;
-    animation: klovnfisk 18s linear infinite;
+    bottom: 35vh;
+    right: 20vh;
+    animation: klovnfisk 16s linear infinite;
     cursor: pointer;
 }
 
 @keyframes klovnfisk {
     0% {transform: translateX(0);}                          /* fiskens startpunkt*/
-    48% {transform: translateX(-600px) rotateY(0);}         /* fisken svømmer til venstre*/
-    50% {transform: translateX(-550px) rotateY(180deg);}    /* fisken laver en hurtig vendning*/
+    48% {transform: translateX(-650px) rotateY(0);}         /* fisken svømmer til venstre*/
+    50% {transform: translateX(-650px) rotateY(180deg);}    /* fisken laver en hurtig vendning*/
     98% {transform: translateX(0) rotateY(180deg);}         /* fisken svømmer mod højre*/
     100% {transform: translateX(0) translateY(0);}          /* den laver en hurtig vending og starter loopen forfra*/
 }
 
+/* klovnfisk 2*/
+.mini-klovnfisk {
+    position: absolute;
+    bottom: 60vh;
+    right: 20vh;
+    width: 90px;
+    animation: klovnfisk 10s linear infinite;
+    cursor: pointer;
+}
+
+@keyframes klovnfisk {
+    0% {transform: translateX(0);}                          
+    48% {transform: translateX(-750px) rotateY(0);}         
+    50% {transform: translateX(-650px) rotateY(180deg);}    
+    98% {transform: translateX(0) rotateY(180deg);}         
+    100% {transform: translateX(0) translateY(0);}          
+}
 
 /* laks */
 .laks {
     position: absolute;
-    bottom: 50vh;
-    left: 320px;
+    bottom: 70vh;
+    left: 45vh;
+    width: 150px;
     animation: laks 15s linear infinite;
     cursor: pointer;
 }
@@ -83,30 +133,30 @@ ANIMATION AF FISK
     100% {transform: translateX(0) translateY(0);}
 }
 
-
 /* den blå fisk */
 .blue-fisk {
     position: absolute;
-    bottom: 20vh;
-    left: 320px;
+    bottom: 25vh;
+    left: 50vh;
+    width: 150px;
     animation: blue-fisk 12s linear infinite;
     cursor: pointer;
 }
 
 @keyframes blue-fisk {
     0% {transform: translateX(0);}
-    48% {transform: translateX(650px) rotateY(0);}
+    48% {transform: translateX(700px) rotateY(0);}
     50% {transform: translateX(620px) rotateY(180deg);}
     98% {transform: translateX(0) rotateY(180deg);}
     100% {transform: translateX(0) rotateY(0);}
 }
 
-
 /* den lilla fisk */
 .lilla-fisk {
     position: absolute;
     bottom: 18vh;
-    right: 320px;
+    right: 30vh;
+    width: 100px;
     animation: lilla-fisk 8s linear infinite;
     cursor: pointer;
 }
@@ -119,43 +169,21 @@ ANIMATION AF FISK
     100% {transform: translateX(0) translateY(0);}
 }
 
-
 /* den stribede fisk */
 .stribet-fisk {
     position: absolute;
-    bottom: 45vh;
-    left: 320px;
+    bottom: 60vh;
+    left: 50vh;
     animation: stribet-fisk 10s linear infinite;
     cursor: pointer;
 }
 
 @keyframes stribet-fisk {
     0% {transform: translateX(0);}
-    48% {transform: translateX(650px) rotateY(0);}
+    48% {transform: translateX(800px) rotateY(0);}
     50% {transform: translateX(620px) rotateY(180deg);}
     98% {transform: translateX(0) rotateY(180deg);}
     100% {transform: translateX(0) rotateY(0);}
-}
-
-
-/*----------------------
-ANIMATION AF CYKLEN
-------------------------*/
-
-.cykel {
-    position: absolute;
-    top: -200px; /* cyklen starter udenfor viewporten*/
-    z-index: 10;
-    left: 500px;
-    cursor: pointer;
-    animation: cykel 5s linear 1 forwards; /* kører kun animationen en gang og beholder sluttilstand*/ 
-    animation-delay: 5s;  
-}
-
-@keyframes cykel {
-    0% {transform: translateY(0);}
-    50% {transform: translateY(800px);}
-    100% {transform: translateY(800px);}
 }
 
 
@@ -164,23 +192,20 @@ VIDENSBOKS TIL DATAOBJEKTERNE
 -----------------------------*/
 .vidensboks {
     position: absolute;
-    right: 60vh;
-    bottom: 50vh;
+    right: 35vh;
+    bottom: 75vh;
     background-color: rgb(211, 241, 253);
     color: darkblue;
-    padding: 10px;
-    border-radius: 8px;
+    padding: 20px;
+    border-radius: 50%;
     font-size: 14px;
+    font-family: 'poppins';
     line-height: 1.5;
-    max-width: min(320px, 90vw);
-    box-shadow: 0 8px 22px rgba(0, 0, 0, 0.25);
     opacity: 0;  
-    transform: translateY(8px);
     transition: opacity 0.25s ease, transform 0.2s ease;
     pointer-events: none;
     z-index: 20;
 }
-
 
 .vidensboks.is-visible {
     opacity: 1;
@@ -188,15 +213,6 @@ VIDENSBOKS TIL DATAOBJEKTERNE
 }
 
 
-/*------------------
-AKVARIE OVERSKRIFT
---------------------*/
-.akvarie-titel {
-    position: absolute;
-    right: 62vh;
-    top: 15vh;
-    z-index: 30;
-    color: var(--color-bg-bot);
 
 
-}
+
